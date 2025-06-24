@@ -1,19 +1,13 @@
 'use client'
 
 import { signup } from '@/app/actions/auth'
-// import { useActionState } from 'react'
+import { useActionState } from 'react'
 
 export default function LoginForm() {
-  // const [state, action, pending] = useActionState(signup, undefined)
-
-  const data = new FormData()
+  const [state, action, pending] = useActionState(signup, undefined)
 
   return (
-    <form
-      action={async () => {
-        'use server'
-        await signup(data)
-      }}>
+    <form action={action}>
       <button type="submit">Sign Up</button>
     </form>
   )
